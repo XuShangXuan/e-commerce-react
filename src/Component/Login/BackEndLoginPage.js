@@ -4,7 +4,7 @@ import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
-import { Container, Row, Col, Form, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Form } from 'react-bootstrap';
 
 const managerLoginApiUrl = 'http://localhost:8085/E-Commerce-SpringBoot/ManagerController/login';
 
@@ -53,10 +53,6 @@ const BackEndLoginPage = ({ BackEndLoginData }) => {
 
         callManagerLoginApi();
 
-        if (managerInfo.loginMessage != null && managerInfo.loginMessage != "") {
-            handleLoginMsgShow();
-        }
-
     }
 
     const callManagerLoginApi = async () => {
@@ -73,11 +69,15 @@ const BackEndLoginPage = ({ BackEndLoginData }) => {
 
         setManagerInfo(loginData);
 
-        // window.location = "/ShoppingHome"; // 會有整頁刷新的動作
-        navigate("/GoodsList"); // 只變化不同的部分
-    }
+        if (loginData.isLogin) {
+            navigate("/GoodsList"); // 局部更新
+        }
 
-    const [error, setError] = useState(null);
+        if (loginData.loginMessage != null && loginData.loginMessage != "") {
+            handleLoginMsgShow();
+        }
+
+    }
 
     return (
         <Container>
@@ -96,8 +96,7 @@ const BackEndLoginPage = ({ BackEndLoginData }) => {
             <Row className="justify-content-md-center mt-5">
                 <Col xs={12} md={4}>
                     <Form>
-                        <h2 className="text-center mb-4">Login</h2>
-                        {error && <Alert variant="danger">{error}</Alert>}
+                        <h2 className="text-center mb-4">管理者登入</h2>
                         <Form.Group controlId="id">
                             <Form.Label>ID:</Form.Label>
                             <Form.Control
@@ -126,28 +125,6 @@ const BackEndLoginPage = ({ BackEndLoginData }) => {
                 </Col>
             </Row>
         </Container>
-        // <div>
-        //     <Modal show={loginMsg} onHide={handleLoginMsgClose}>
-        //         <Modal.Header closeButton>
-        //             <Modal.Title>E-Commerce系統訊息</Modal.Title>
-        //         </Modal.Header>
-        //         <Modal.Body>
-        //             {managerInfo.loginMessage}
-        //         </Modal.Body>
-        //         <Modal.Footer>
-        //             <Button variant="primary" onClick={handleLoginMsgClose}>Close</Button>
-        //         </Modal.Footer>
-        //     </Modal>
-        //     <h3>管理者登入頁面</h3>
-        //     <h4>F452378621</h4>
-        //     <h4>G744565634</h4>
-        //     ID:<input type="text" id='id' name="id" ref={inputIDRef} onChange={inputChange} />
-        //     <br /><br />
-        //     PWD:<input type="password" id='password' name="pwd" onChange={inputChange} />
-        //     <br /><br />
-        //     <button onClick={onClickLogin}>提交</button>
-        //     <br />
-        // </div >
     )
 };
 
