@@ -4,6 +4,7 @@ import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
+import { Container, Row, Col, Form } from 'react-bootstrap';
 
 const loginApiUrl = 'http://localhost:8085/E-Commerce-SpringBoot/MemberController/login';
 
@@ -51,10 +52,6 @@ const FrontEndLoginPage = ({ FrontLoginData }) => {
 
         callLoginApi();
 
-        if (memberInfo.loginMessage != null && memberInfo.loginMessage != "") {
-            handleLoginMsgShow();
-        }
-
     }
 
     // 後端檢查帳密是否正確
@@ -72,13 +69,20 @@ const FrontEndLoginPage = ({ FrontLoginData }) => {
 
         setMemberInfo(loginData);
 
-        // window.location = "/ShoppingHome"; // 會有整頁刷新的動作
-        navigate("/ShoppingHome"); // 只變化不同的部分
+        if (loginData.isLogin) {
+            // window.location = "/ShoppingHome"; // 會有整頁刷新的動作
+            navigate("/ShoppingHome"); // 只變化不同的部分
+        }
+
+        if (loginData.loginMessage != null && loginData.loginMessage != "") {
+            handleLoginMsgShow();
+        }
 
     }
 
     return (
-        <div>
+        <Container>
+            <br /><br /><br /><br /><br /><br />
             <Modal show={loginMsg} onHide={handleLoginMsgClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>E-Commerce系統訊息</Modal.Title>
@@ -90,14 +94,45 @@ const FrontEndLoginPage = ({ FrontLoginData }) => {
                     <Button variant="primary" onClick={handleLoginMsgClose}>Close</Button>
                 </Modal.Footer>
             </Modal>
-            <h3>使用者登入頁面</h3>
+            <Row className="justify-content-md-center mt-5">
+                <Col xs={12} md={4}>
+                    <Form>
+                        <h2 className="text-center mb-4">使用者登入</h2>
+                        <Form.Group controlId="id">
+                            <Form.Label>ID:</Form.Label>
+                            <Form.Control
+                                type="text"
+                                ref={inputIDRef}
+                                name="id"
+                                value={login.id}
+                                onChange={inputChange}
+                                placeholder="Enter your ID"
+                            />
+                        </Form.Group>
+                        <Form.Group controlId="password">
+                            <Form.Label>Password:</Form.Label>
+                            <Form.Control
+                                type="password"
+                                name="password"
+                                value={login.password}
+                                onChange={inputChange}
+                                placeholder="Enter your password"
+                            />
+                        </Form.Group>
+                        <Button variant="primary" type="button" onClick={onClickLogin} block>
+                            Login
+                        </Button>
+                    </Form>
+                </Col>
+            </Row>
+            {/* <h3>使用者登入頁面</h3>
             ID:<input type="text" id='id' name="id" ref={inputIDRef} onChange={inputChange} />
             <br /><br />
             PWD:<input type="password" id='password' name="pwd" onChange={inputChange} />
             <br /><br />
             <button onClick={onClickLogin}>提交</button>
-            <br />
-        </div >
+            <br /> */}
+        </Container >
     )
 };
 
