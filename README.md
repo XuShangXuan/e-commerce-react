@@ -1,5 +1,12 @@
 # e-commerce-react
 
+## 資料庫關聯圖
+##### Oracle
+![N|Solid](https://raw.githubusercontent.com/XuShangXuan/e-commerce-react/main/READMEIMG/OracleERD.png)
+##### MySQL
+![N|Solid](https://raw.githubusercontent.com/XuShangXuan/e-commerce-react/main/READMEIMG/MySqlERD.png)
+
+## 網站畫面
 ### 登入頁:
 ##### 一進入網頁會先進入登入畫面
 
