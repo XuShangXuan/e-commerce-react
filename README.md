@@ -1,5 +1,9 @@
 # e-commerce-react
 
+## 網站應用技術
+![N|Solid](https://raw.githubusercontent.com/XuShangXuan/e-commerce-react/main/READMEIMG/E-Connerce-BackEndImg.png)
+![N|Solid](https://raw.githubusercontent.com/XuShangXuan/e-commerce-react/main/READMEIMG/E-Connerce-FrontEndImg.png)
+
 ## 資料庫關聯圖
 ##### Oracle
 ![N|Solid](https://raw.githubusercontent.com/XuShangXuan/e-commerce-react/main/READMEIMG/OracleERD.png)
@@ -9,7 +13,6 @@
 ## 網站畫面
 ### 登入頁:
 ##### 一進入網頁會先進入登入畫面
-
 ![N|Solid](https://raw.githubusercontent.com/XuShangXuan/e-commerce-react/main/READMEIMG/E-Connerce-Img.png)
 ![N|Solid](https://raw.githubusercontent.com/XuShangXuan/e-commerce-react/main/READMEIMG/E-Connerce-Img%20(1).png)
 ![N|Solid](https://raw.githubusercontent.com/XuShangXuan/e-commerce-react/main/READMEIMG/E-Connerce-Img%20(2).png)
