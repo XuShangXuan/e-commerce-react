@@ -55,7 +55,7 @@ const CheckoutComplete = ({ FrontLoginData, FrontLogoutData }) => {
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="mr-auto">
-                        <Button variant="outline-success" onClick={shopping}>繼續購物</Button>
+                        <Button variant="outline-light" onClick={shopping}>繼續購物</Button>
                     </Nav>
                     <Button variant="outline-secondary" onClick={onClickLogout}>登出</Button>
                 </Navbar.Collapse>
