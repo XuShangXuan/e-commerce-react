@@ -15,7 +15,10 @@ import CardDeck from 'react-bootstrap/CardDeck';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Modal from 'react-bootstrap/Modal'
+import Image from 'react-bootstrap/Image';
 import CustomPagination from '../widgets/CustomPagination';
+import addGoodsImg from './img/success-icon-23194.png';
+// import addGoodsImg from './img/checked.png';
 
 const queryGoodsDataApiUrl = 'http://localhost:8085/E-Commerce-SpringBoot/FrontEndController/queryGoodsData';
 const addCartGoodsApiUrl = 'http://localhost:8085/E-Commerce-SpringBoot/MemberController/addCartGoods';
@@ -227,8 +230,10 @@ const ShoppingHome = ({ FrontLoginData, shoppingCartInfo, FrontLogoutData }) => 
                 <Modal.Header closeButton>
                     <Modal.Title>購物車訊息</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    商品加入成功
+                <Modal.Body style={{ textAlign: 'center' }}>
+                    <Image src={addGoodsImg} roundedCircle style={{ width: '120px', height: '120px' }} />
+                    <br /><br />
+                    <h4 style={{ fontWeight: 'bold' }}>商品加入成功!!</h4>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={handleCartMsgClose}>Close</Button>
