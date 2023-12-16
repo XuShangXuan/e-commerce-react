@@ -2,11 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
-import Modal from 'react-bootstrap/Modal'
+import Modal from 'react-bootstrap/Modal';
+import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import './LoginForm.css';
+import FailImg from './img/cancel.png';
+// import FailImg from './img/close.png';
+// import FailImg from './img/remove.png';
 
 const managerLoginApiUrl = 'http://localhost:8085/E-Commerce-SpringBoot/ManagerController/login';
 
@@ -101,8 +105,10 @@ const BackEndLoginPage = ({ BackEndLoginData }) => {
                 <Modal.Header closeButton>
                     <Modal.Title>E-Commerce系統訊息</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    {managerInfo.loginMessage}
+                <Modal.Body style={{ textAlign: 'center' }}>
+                <Image src={FailImg} roundedCircle style={{ width: '120px', height: '120px' }} />
+                    <br /><br />
+                    <h4 style={{ fontWeight: 'bold' }}>{managerInfo.loginMessage}</h4>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={handleLoginMsgClose}>Close</Button>
