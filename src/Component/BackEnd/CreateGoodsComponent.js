@@ -164,7 +164,7 @@ class CreateGoodsComponent extends Component {
                     <h2>商品新增作業</h2>
                     <br />
                     {isSuccessful &&
-                        <p style={{ color: 'blue' }}>商品編號:{uploadSuccessful.goodsID} 建立成功!</p>
+                        <p className="text-primary">商品編號:{uploadSuccessful.goodsID} 建立成功!</p>
                     }
                     <Form noValidate validated={validated} onSubmit={this.handleSubmit}>
                         <Form.Row>
