@@ -4,7 +4,9 @@ import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
-import { Container, Row, Col, Form } from 'react-bootstrap';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import './LoginForm.css';
 
 const managerLoginApiUrl = 'http://localhost:8085/E-Commerce-SpringBoot/ManagerController/login';
 
@@ -47,11 +49,21 @@ const BackEndLoginPage = ({ BackEndLoginData }) => {
         setLogin(login => ({ ...login, [id]: value }));
     };
 
-    const onClickLogin = () => {
+    const handleSubmit = (e) => {
+
+        e.preventDefault(); // 避免表單送出預設跳頁行為
 
         inputIDRef.current.focus();
 
-        callManagerLoginApi();
+        // 開啟BootStrap表單驗證
+        setValidated(true);
+
+        // 取得一整個form表單
+        const form = e.currentTarget;
+
+        if (form.checkValidity()) {
+            callManagerLoginApi();
+        }
 
     }
 
@@ -79,9 +91,12 @@ const BackEndLoginPage = ({ BackEndLoginData }) => {
 
     }
 
+    //-----------------------------------------------------------------------------------------
+
+    const [validated, setValidated] = useState(false);
+
     return (
-        <Container>
-            <br /><br /><br /><br /><br /><br />
+        <div>
             <Modal show={loginMsg} onHide={handleLoginMsgClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>E-Commerce系統訊息</Modal.Title>
@@ -93,13 +108,14 @@ const BackEndLoginPage = ({ BackEndLoginData }) => {
                     <Button variant="primary" onClick={handleLoginMsgClose}>Close</Button>
                 </Modal.Footer>
             </Modal>
-            <Row className="justify-content-md-center mt-5">
-                <Col xs={12} md={4}>
-                    <Form>
-                        <h2 className="text-center mb-4">管理者登入</h2>
-                        <Form.Group controlId="id">
+            <div className="login-form-container">
+                <h2 className="text-center mb-4">管理者登入</h2>
+                <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                    <Form.Row>
+                        <Form.Group as={Col} controlId="id">
                             <Form.Label>ID:</Form.Label>
                             <Form.Control
+                                required
                                 type="text"
                                 ref={inputIDRef}
                                 name="id"
@@ -108,9 +124,12 @@ const BackEndLoginPage = ({ BackEndLoginData }) => {
                                 placeholder="Enter your ID"
                             />
                         </Form.Group>
-                        <Form.Group controlId="password">
+                    </Form.Row>
+                    <Form.Row>
+                        <Form.Group as={Col} controlId="password">
                             <Form.Label>Password:</Form.Label>
                             <Form.Control
+                                required
                                 type="password"
                                 name="password"
                                 value={login.password}
@@ -118,13 +137,15 @@ const BackEndLoginPage = ({ BackEndLoginData }) => {
                                 placeholder="Enter your password"
                             />
                         </Form.Group>
-                        <Button variant="primary" type="button" onClick={onClickLogin} block>
+                    </Form.Row>
+                    <Form.Row>
+                        <Button variant="primary" type='submit' block>
                             Login
                         </Button>
-                    </Form>
-                </Col>
-            </Row>
-        </Container>
+                    </Form.Row>
+                </Form>
+            </div>
+        </div >
     )
 };
 
