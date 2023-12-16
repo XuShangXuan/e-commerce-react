@@ -158,24 +158,27 @@ const ShoppingHome = ({ FrontLoginData, shoppingCartInfo, FrontLogoutData }) => 
 
         event.preventDefault(); // 防止瀏灠器預設submit跳頁
 
-        handleCartMsgShow();
-
         console.log('ShoppingHome 加入購物車');
 
         const quantity = event.target.buyQuantity.value; // 獲取購買數量
 
         console.log('ShoppingHome 購買數量:', quantity);
 
-        const params = {
-            "goodsID": goodsID,
-            "quantity": quantity
-        };
+        if (quantity != null && quantity > 0) {
 
-        const cartGoods = await axios.post(addCartGoodsApiUrl, params, { withCredentials: true }, { timeout: 10000 })
-            .then(rs => rs.data)
-            .catch(error => { console.log(error); });
+            handleCartMsgShow();
 
-        setShoppingCart(cartGoods);
+            const params = {
+                "goodsID": goodsID,
+                "quantity": quantity
+            };
+
+            const cartGoods = await axios.post(addCartGoodsApiUrl, params, { withCredentials: true }, { timeout: 10000 })
+                .then(rs => rs.data)
+                .catch(error => { console.log(error); });
+
+            setShoppingCart(cartGoods);
+        }
 
     }
 
