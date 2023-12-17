@@ -42,9 +42,9 @@
 ### 商品維護頁:
 ![N|Solid](https://raw.githubusercontent.com/XuShangXuan/e-commerce-react/main/READMEIMG/%E7%B6%B2%E7%AB%99%E7%95%AB%E9%9D%A2/%E5%95%86%E5%93%81%E7%B6%AD%E8%AD%B7%E9%A0%81.png)
 ### 商品新增頁:
-[N|Solid](https://raw.githubusercontent.com/XuShangXuan/e-commerce-react/main/READMEIMG/%E7%B6%B2%E7%AB%99%E7%95%AB%E9%9D%A2/%E5%95%86%E5%93%81%E6%96%B0%E5%A2%9E%E9%A0%81.png)
+![N|Solid](https://raw.githubusercontent.com/XuShangXuan/e-commerce-react/main/READMEIMG/%E7%B6%B2%E7%AB%99%E7%95%AB%E9%9D%A2/%E5%95%86%E5%93%81%E6%96%B0%E5%A2%9E%E9%A0%81.png)
 ### 銷售報表頁:
-[N|Solid](https://raw.githubusercontent.com/XuShangXuan/e-commerce-react/main/READMEIMG/%E7%B6%B2%E7%AB%99%E7%95%AB%E9%9D%A2/%E9%8A%B7%E5%94%AE%E5%A0%B1%E8%A1%A8%E9%A0%81.png)
+![N|Solid](https://raw.githubusercontent.com/XuShangXuan/e-commerce-react/main/READMEIMG/%E7%B6%B2%E7%AB%99%E7%95%AB%E9%9D%A2/%E9%8A%B7%E5%94%AE%E5%A0%B1%E8%A1%A8%E9%A0%81.png)
 
 
 # 網站說明
