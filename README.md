@@ -1,5 +1,11 @@
 # e-commerce-react
 
+## 活動圖Activity Diagram
+### 前台活動圖
+![N|Solid](https://raw.githubusercontent.com/XuShangXuan/e-commerce-react/main/READMEIMG/%E6%B4%BB%E5%8B%95%E5%9C%96%20%E5%89%8D%E5%8F%B0.png)
+### 後台活動圖
+![N|Solid](https://raw.githubusercontent.com/XuShangXuan/e-commerce-react/main/READMEIMG/%E6%B4%BB%E5%8B%95%E5%9C%96%20%E5%BE%8C%E5%8F%B0.png)
+
 ## 使用者案例圖Use Case Diagram
 ![N|Solid](https://raw.githubusercontent.com/XuShangXuan/e-commerce-react/main/READMEIMG/E-Commerce%E7%B3%BB%E7%B5%B1%20%E4%BD%BF%E7%94%A8%E8%80%85%E6%A1%88%E4%BE%8B%E5%9C%96.drawio.png)
 
