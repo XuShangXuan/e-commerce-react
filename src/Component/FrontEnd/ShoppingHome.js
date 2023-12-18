@@ -335,7 +335,8 @@ const ShoppingHome = ({ FrontLoginData, shoppingCartInfo, FrontLogoutData }) => 
                                                     {goods.description}
                                                 </Card.Text>
                                                 <Card.Text>
-                                                    {`剩餘數量/${goods.quantity}`}
+                                                    {goods.quantity > 0 ?
+                                                    `剩餘數量/${goods.quantity}` : <span className="text-danger">待補貨</span>}
                                                 </Card.Text>
                                             </Card.Body>
                                             <Form onSubmit={event => addShoppingCart(event, goods.goodsID)}>
