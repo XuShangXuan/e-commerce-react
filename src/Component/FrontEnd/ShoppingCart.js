@@ -261,16 +261,16 @@ const ShoppingCart = ({ FrontLoginData, shoppingCartInfo, FrontLogoutData }) => 
                             <Form.Row>
                                 <Form.Group as={Col} controlId="cardFirst">
                                     <Form.Label>信用卡卡號:</Form.Label>
-                                    <Form.Control required type="number" placeholder="Enter number" max="9999" onChange={inputCardInfo} />
+                                    <Form.Control required type="number" placeholder="Enter number" min="0" max="9999" onChange={inputCardInfo} />
                                 </Form.Group>
                                 <Form.Group as={Col} controlId="cardSecond" className="d-flex align-items-end">
-                                    <Form.Control required type="number" ref={cardSecondRef} placeholder="Enter number" max="9999" onChange={inputCardInfo} />
+                                    <Form.Control required type="number" ref={cardSecondRef} placeholder="Enter number" min="0" max="9999" onChange={inputCardInfo} />
                                 </Form.Group>
                                 <Form.Group as={Col} controlId="cardThird" className="d-flex align-items-end">
-                                    <Form.Control required type="number" ref={cardThirdRef} placeholder="Enter number" max="9999" onChange={inputCardInfo} />
+                                    <Form.Control required type="number" ref={cardThirdRef} placeholder="Enter number" min="0" max="9999" onChange={inputCardInfo} />
                                 </Form.Group>
                                 <Form.Group as={Col} controlId="cardFourth" className="d-flex align-items-end">
-                                    <Form.Control required type="number" ref={cardFourthRef} placeholder="Enter number" max="9999" onChange={inputCardInfo} />
+                                    <Form.Control required type="number" ref={cardFourthRef} placeholder="Enter number" min="0" max="9999" onChange={inputCardInfo} />
                                 </Form.Group>
                             </Form.Row>
                             <Form.Row>
@@ -281,7 +281,7 @@ const ShoppingCart = ({ FrontLoginData, shoppingCartInfo, FrontLogoutData }) => 
                                 </Form.Group>
                                 <Form.Group as={Col} xs={3} controlId="CSC">
                                     <Form.Label>安全碼:</Form.Label>
-                                    <Form.Control required type="number" placeholder="Enter text" max='999' onChange={inputCardInfo} />
+                                    <Form.Control required type="number" placeholder="Enter text" min="0" max='999' onChange={inputCardInfo} />
                                     <Form.Control.Feedback type="invalid">請填寫信用卡安全碼!</Form.Control.Feedback>
                                 </Form.Group>
                             </Form.Row>
