@@ -336,21 +336,23 @@ const ShoppingHome = ({ FrontLoginData, shoppingCartInfo, FrontLogoutData }) => 
                                                 </Card.Text>
                                                 <Card.Text>
                                                     {goods.quantity > 0 ?
-                                                    `剩餘數量/${goods.quantity}` : <span className="text-danger">待補貨</span>}
+                                                        `剩餘數量/${goods.quantity}` : <span className="text-danger">待補貨</span>}
                                                 </Card.Text>
                                             </Card.Body>
-                                            <Form onSubmit={event => addShoppingCart(event, goods.goodsID)}>
+                                            {goods.quantity > 0 &&
                                                 <Card.Footer>
-                                                    <Row>
-                                                        <Col>
-                                                            <Form.Control type="number" name="buyQuantity" placeholder="購買數量" min="0" max={goods.quantity} />
-                                                        </Col>
-                                                        <Col align="right">
-                                                            <Button type='submit' variant="outline-success">加入購物車</Button>
-                                                        </Col>
-                                                    </Row>
+                                                    <Form onSubmit={event => addShoppingCart(event, goods.goodsID)}>
+                                                        <Row>
+                                                            <Col>
+                                                                <Form.Control type="number" name="buyQuantity" placeholder="購買數量" min="0" max={goods.quantity} />
+                                                            </Col>
+                                                            <Col align="right">
+                                                                <Button type='submit' variant="outline-success">加入購物車</Button>
+                                                            </Col>
+                                                        </Row>
+                                                    </Form>
                                                 </Card.Footer>
-                                            </Form>
+                                            }
                                         </Card>
                                     ))}
 
